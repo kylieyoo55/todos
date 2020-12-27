@@ -5,8 +5,12 @@ const bodyParser = require("body-parser");
 const date = require(__dirname + "/date.js");
 const mongoose =require("mongoose");
 const _ =require("lodash");
+const PORT = process.env.PORT || 3000;
+
 
 const app = express();
+
+
 
 mongoose.connect("mongodb+srv://kylieyoo55:yooy2242@cluster0.s7syc.mongodb.net/todolistDB?retryWrites=true&w=majority", {
   useUnifiedTopology: true,
@@ -155,6 +159,6 @@ app.get("/about", function(req, res){
   res.render("about");
 });
 
-app.listen(3000, function() {
-  console.log("Server started on port 3000");
-});
+
+
+app.listen(PORT, () => console.log(`Listening on ${ PORT }`));
